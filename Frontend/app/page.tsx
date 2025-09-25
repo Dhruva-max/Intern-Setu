@@ -22,6 +22,18 @@ export default function Home() {
     // Here you could fetch new matches based on the completed profile
   }
 
+  const handleApply = (internship: any) => {
+    console.log("Apply clicked for:", internship);
+    // Here you would typically redirect to application form or open modal
+    alert(`Applying for ${internship.title} at ${internship.org}`);
+  };
+
+  const handleSave = (internship: any) => {
+    console.log("Save clicked for:", internship);
+    // Here you would typically save to favorites/bookmarks
+    alert(`Saved ${internship.title} to your favorites`);
+  };
+
   return (
     <div className="p-4">
       <main className="space-y-4">
@@ -33,8 +45,8 @@ export default function Home() {
         <h2 className="text-lg font-semibold">Top matches</h2>
         <MatchesCarousel
           internships={matches}
-          onApply={(i) => console.log("Apply", i)}
-          onSave={(i) => console.log("Save", i)}
+          onApply={handleApply}
+          onSave={handleSave}
         />
       </main>
     </div>

@@ -1,6 +1,31 @@
 import React from 'react';
+import axios from 'axios';
+import { useTranslation } from 'react-i18next';
+
+const RECOMMEND_URL = process.env.NEXT_PUBLIC_RECOMMEND_URL;
 
 export default function InternshipCard({ internship, onApply, onSave }) {
+  const { i18n, t } = useTranslation();
+
+  const handleApply = (internship) => {
+    onApply(internship);
+    axios.post(`${RECOMMEND_URL}/analytics`, {
+      event: 'apply_click',
+      internshipId: internship.id,
+      language: i18n.language,
+      timestamp: Date.now()
+    }).catch(err => console.warn('Analytics error', err));
+  };
+
+  const handleSave = (internship) => {
+    onSave(internship);
+    axios.post(`${RECOMMEND_URL}/analytics`, {
+      event: 'save_click',
+      internshipId: internship.id,
+      language: i18n.language,
+      timestamp: Date.now()
+    }).catch(err => console.warn('Analytics error', err));
+  };
   return (
     <article
       className="rounded-2xl border p-4 mb-3 bg-white shadow-md shadow-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
@@ -26,15 +51,15 @@ export default function InternshipCard({ internship, onApply, onSave }) {
       </p>
       <div className="mt-3 flex gap-2">
         <button
-          onClick={() => onApply(internship)}
+          onClick={() => handleApply(internship)}
           className="flex-1 py-3 rounded-full bg-blue-600 text-white touch-manipulation">
-          Apply
+          {t('Apply')}
         </button>
         <button
-          onClick={() => onSave(internship)}
+          onClick={() => handleSave(internship)}
           aria-label={`Save ${internship.title}`}
           className="px-4 py-3 rounded-full border">
-          Save
+          {t('Save')}
         </button>
       </div>
     </article>
