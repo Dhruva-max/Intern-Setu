@@ -1,0 +1,82 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Intern-Setu Assistant <assistant@example.com>
+Date: Thu, 25 Sep 2025 00:00:00 +0530
+Subject: [PATCH] Add i18n, PWA, Flask recommend API, UI components
+
+---
+diff --git a/.env.example b/.env.example
+new file mode 100644
+index 0000000..1111111
+--- /dev/null
++++ b/.env.example
+@@ -0,0 +1,16 @@
++# Frontend (Next.js)
++NEXT_PUBLIC_AIRTABLE_EMBED_URL="https://airtable.com/embed/xxxxx"
++NEXT_PUBLIC_BOTPRESS_URL="https://your-botpress-host"
++NEXT_PUBLIC_RECOMMEND_URL="http://localhost:5000"
++
++# Backend (Flask)
++AIRTABLE_API_KEY="your_airtable_key"
++AIRTABLE_BASE_ID="appXXXXX"
++RECOMMEND_SERVER_PORT=5000
++
++# Optional: analytics sink if separate
++ANALYTICS_URL="http://localhost:5000/events"
++
++# Node env
++NODE_ENV=development
++
+diff --git a/server/app.py b/server/app.py
+new file mode 100644
+index 0000000..2222222
+--- /dev/null
++++ b/server/app.py
+@@ -0,0 +40,10 @@
++from flask import Flask, request, jsonify
++from flask_cors import CORS
++
++app = Flask(__name__)
++CORS(app)
++
++@app.route("/recommend", methods=["POST"])
++def recommend():
++    return jsonify({"matches": []})
++
++if __name__ == "__main__":
++    app.run(host="0.0.0.0", port=5000, debug=True)
+diff --git a/Frontend/src/i18n.js b/Frontend/src/i18n.js
+new file mode 100644
+index 0000000..3333333
+--- /dev/null
++++ b/Frontend/src/i18n.js
+@@ -0,0 +1,10 @@
++import i18n from "i18next";
++import { initReactI18next } from "react-i18next";
++
++i18n.use(initReactI18next).init({
++  resources: {
++    en: { translation: { "Hello": "Hello" } },
++    hi: { translation: { "Hello": "नमस्ते" } }
++  },
++  lng: "en",
++  fallbackLng: "en",
++});
++
++export default i18n;
+diff --git a/Frontend/src/components/LanguageSwitcher.jsx b/Frontend/src/components/LanguageSwitcher.jsx
+new file mode 100644
+index 0000000..4444444
+--- /dev/null
++++ b/Frontend/src/components/LanguageSwitcher.jsx
+@@ -0,0 +1,10 @@
++import React from "react";
++import { useTranslation } from "react-i18next";
++
++export default function LanguageSwitcher() {
++  const { i18n } = useTranslation();
++  return (
++    <div>
++      <button onClick={() => i18n.changeLanguage("en")}>EN</button>
++      <button onClick={() => i18n.changeLanguage("hi")}>HI</button>
++    </div>
++  );
