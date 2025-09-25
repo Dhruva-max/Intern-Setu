@@ -1,5 +1,5 @@
-import React from 'react';
-import InternshipCard from './InternshipCard';
+import React from 'react'
+import InternshipCard from './InternshipCard'
 
 export default function MatchesCarousel({ internships, onApply, onSave }) {
   return (
@@ -12,5 +12,5 @@ export default function MatchesCarousel({ internships, onApply, onSave }) {
         ))}
       </div>
     </div>
-  );
+  )
 }

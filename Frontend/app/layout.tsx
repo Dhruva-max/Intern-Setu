@@ -1,5 +1,4 @@
 import '../src/styles/globals.css'
-import '../src/i18n'
 import { Inter } from 'next/font/google'
 import ClientLayout from './client-layout'
 

@@ -1,0 +1,22 @@
+[
+  {
+    "id":"nai-1",
+    "title":"Data Analyst Intern",
+    "org":"NITI Aayog",
+    "location":"Delhi NCR",
+    "mode":"Hybrid",
+    "skills":["Python","Excel","Data cleaning"],
+    "sector":"Public Policy",
+    "duration":"3 months"
+  },
+  {
+    "id":"edu-2",
+    "title":"Policy Research Intern",
+    "org":"Ministry of Education",
+    "location":"Remote",
+    "mode":"Remote",
+    "skills":["Research","Report writing","Stata"],
+    "sector":"Education",
+    "duration":"2 months"
+  }
+]

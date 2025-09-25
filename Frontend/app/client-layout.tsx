@@ -1,5 +1,6 @@
 'use client'
 
+import '../src/i18n'
 import LanguageSwitcher from '../src/components/LanguageSwitcher'
 import { useRegisterSW } from '../src/hooks/useRegisterSW'
 
