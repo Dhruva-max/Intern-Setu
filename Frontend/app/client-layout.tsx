@@ -2,7 +2,7 @@
 
 import '../src/i18n'
 import LanguageSwitcher from '../src/components/LanguageSwitcher'
-import { useRegisterSW } from '../src/hooks/useRegisterSW'
+import useRegisterSW from '../src/hooks/useRegisterSW'
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   useRegisterSW()

@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 export default function InternshipCard({ internship, onApply, onSave }) {
-  // internship: {id, title, org, location, mode, hours, duration, score, why}
   return (
     <article
-      className="rounded-2xl border p-4 mb-3 bg-white shadow-offset-yellow focus:outline-none focus:ring-2 focus:ring-internYellow"
+      className="rounded-2xl border p-4 mb-3 bg-white shadow-md shadow-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
       tabIndex="0"
       role="article"
       aria-labelledby={`title-${internship.id}`}>
+      
+      {/* Header */}
       <div className="flex items-start gap-3">
         <div aria-hidden className="w-14 h-14 rounded-lg bg-emerald-100 flex items-center justify-center text-lg font-semibold">
-          {internship.logo || internship.title.split(' ').map(w=>w[0]).slice(0,2).join('')}
+          {internship.logo || internship.title.split(' ').map(w => w[0]).slice(0,2).join('')}
         </div>
         <div className="flex-1">
           <h3 id={`title-${internship.id}`} className="font-semibold text-base">{internship.title}</h3>
@@ -21,15 +22,26 @@ export default function InternshipCard({ internship, onApply, onSave }) {
         </div>
       </div>
 
+      {/* Why matched */}
       <p className="mt-3 text-sm text-slate-700">
         <strong className="sr-only">Why matched: </strong>
-        {internship.why}
+        {internship.why || "This internship fits your skills and location."}
       </p>
 
+      {/* Buttons */}
       <div className="mt-3 flex gap-2">
-        <button onClick={() => onApply(internship)} className="flex-1 py-3 rounded-full bg-internBlue text-white touch-manipulation">Apply</button>
-        <button onClick={() => onSave(internship)} aria-label={`Save ${internship.title}`} className="px-4 py-3 rounded-full border">Save</button>
+        <button
+          onClick={() => onApply(internship)}
+          className="flex-1 py-3 rounded-full bg-blue-600 text-white touch-manipulation">
+          Apply
+        </button>
+        <button
+          onClick={() => onSave(internship)}
+          aria-label={`Save ${internship.title}`}
+          className="px-4 py-3 rounded-full border">
+          Save
+        </button>
       </div>
     </article>
-  )
+  );
 }

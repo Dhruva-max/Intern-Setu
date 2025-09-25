@@ -1,9 +1,9 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function LanguageSwitcher() {
-  const { i18n } = useTranslation()
-  const setLang = (lng) => i18n.changeLanguage(lng)
+  const { i18n } = useTranslation();
+  const setLang = (lng) => i18n.changeLanguage(lng);
 
   return (
     <div className="flex gap-2">
@@ -17,5 +17,5 @@ export default function LanguageSwitcher() {
         </button>
       ))}
     </div>
-  )
+  );
 }
