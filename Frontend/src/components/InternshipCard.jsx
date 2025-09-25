@@ -1,55 +1,34 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-const InternshipCard = ({ internship, onApply, onSave }) => {
+export default function InternshipCard({ internship, onApply, onSave }) {
   return (
-    <motion.div
-      className="bg-white rounded-lg shadow-offset-yellow border-2 border-gray-200 p-4 mb-4"
-      whileHover={{ y: -2 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="flex justify-between items-start mb-3">
+    <article
+      className="rounded-2xl border p-4 mb-3 bg-white shadow-offset-yellow focus:outline-none focus:ring-2 focus:ring-internYellow"
+      tabIndex="0"
+      role="article"
+      aria-labelledby={`title-${internship.id}`}>
+      <div className="flex items-start gap-3">
+        <div aria-hidden className="w-14 h-14 rounded-lg bg-emerald-100 flex items-center justify-center text-lg font-semibold">
+          {internship.logo || internship.title.split(' ').map(w => w[0]).slice(0,2).join('')}
+        </div>
         <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-900 mb-1">{internship.title}</h3>
-          <p className="text-internBlue font-semibold text-sm">{internship.company}</p>
-          <p className="text-gray-600 text-sm">{internship.location}</p>
+          <h3 id={`title-${internship.id}`} className="font-semibold text-base">{internship.title}</h3>
+          <p className="text-xs text-slate-600">{internship.org} • {internship.location} • {internship.mode}</p>
         </div>
-        <div className="flex flex-col gap-2">
-          <button
-            onClick={() => onSave(internship.id)}
-            className="px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
-          >
-            💾 Save
-          </button>
+        <div className="text-right">
+          <div className="inline-block px-2 py-1 rounded-full text-xs border">{internship.score}%</div>
         </div>
       </div>
-      
-      <p className="text-gray-700 text-sm mb-3 line-clamp-2">{internship.description}</p>
-      
-      <div className="flex flex-wrap gap-2 mb-3">
-        {internship.skills.map((skill, index) => (
-          <span
-            key={index}
-            className="px-2 py-1 bg-internYellow text-gray-900 text-xs rounded-full font-medium"
-          >
-            {skill}
-          </span>
-        ))}
-      </div>
-      
-      <div className="flex justify-between items-center">
-        <span className="text-sm text-gray-600">
-          {internship.duration} • {internship.type}
-        </span>
-        <button
-          onClick={() => onApply(internship.id)}
-          className="bg-internBlue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
-        >
-          Apply Now
-        </button>
-      </div>
-    </motion.div>
-  );
-};
 
-export default InternshipCard;
+      <p className="mt-3 text-sm text-slate-700">
+        <strong className="sr-only">Why matched: </strong>
+        {internship.why}
+      </p>
+
+      <div className="mt-3 flex gap-2">
+        <button onClick={() => onApply(internship)} className="flex-1 py-3 rounded-full bg-internBlue text-white touch-manipulation">Apply</button>
+        <button onClick={() => onSave(internship)} aria-label={`Save ${internship.title}`} className="px-4 py-3 rounded-full border">Save</button>
+      </div>
+    </article>
+  );
+}
