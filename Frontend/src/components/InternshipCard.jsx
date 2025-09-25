@@ -8,7 +8,6 @@ export default function InternshipCard({ internship, onApply, onSave }) {
       role="article"
       aria-labelledby={`title-${internship.id}`}>
       
-      {/* Header */}
       <div className="flex items-start gap-3">
         <div aria-hidden className="w-14 h-14 rounded-lg bg-emerald-100 flex items-center justify-center text-lg font-semibold">
           {internship.logo || internship.title.split(' ').map(w => w[0]).slice(0,2).join('')}
@@ -22,13 +21,9 @@ export default function InternshipCard({ internship, onApply, onSave }) {
         </div>
       </div>
 
-      {/* Why matched */}
       <p className="mt-3 text-sm text-slate-700">
-        <strong className="sr-only">Why matched: </strong>
-        {internship.why || "This internship fits your skills and location."}
+        {internship.why || "This internship matches your profile."}
       </p>
-
-      {/* Buttons */}
       <div className="mt-3 flex gap-2">
         <button
           onClick={() => onApply(internship)}

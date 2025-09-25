@@ -25,7 +25,7 @@ function SimpleFallbackForm() {
   return (
     <form
       className="space-y-3"
-      onSubmit={e => { e.preventDefault(); alert('Saved locally — sync when online.'); }}>
+      onSubmit={e => { e.preventDefault(); alert('Saved locally — sync later.'); }}>
       <input className="w-full border rounded p-2" placeholder="Full name" name="name" />
       <input className="w-full border rounded p-2" placeholder="Phone" name="phone" inputMode="tel" />
       <input className="w-full border rounded p-2" placeholder="Email (optional)" name="email" inputMode="email" />
