@@ -223,18 +223,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 *Empowering the next generation through government internship opportunities*
 
-## 📈 Rate Limits
-
-I am currently hosting it for free with no rate limits though this is somewhat likely to change in the future.
-
-<!-- If you would like to bypass these, self-hosting instructions are provided. I also plan on adding an input for your own Anthropic API key.
-
-Diagram generation:
-
-- 1 request per minute
-- 5 requests per day -->
-
-## 🤔 Future Steps
-
-- Implement font-awesome icons in diagram
-- Implement an embedded feature like star-history.com but for diagrams. The diagram could also be updated progressively as commits are made.
