@@ -7,6 +7,8 @@
 
 **InternSetu** is a comprehensive government internship platform that connects students with verified government internship opportunities across India. Built with modern web technologies and designed with government compliance and accessibility in mind.
 
+![InternSetu App Preview](docs/app-preview.png)
+
 ## 🌟 Key Features
 
 - 🏛️ **Government-Verified Opportunities**: All internships are verified and sourced from official government departments
