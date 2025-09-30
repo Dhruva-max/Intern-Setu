@@ -14,10 +14,8 @@
 - 🏛️ **Government-Verified Opportunities**: All internships are verified and sourced from official government departments
 - � **AI-Powered Matching**: Smart recommendation system that matches students with suitable internships
 - 📝 **Streamlined Application Process**: Simple 2-step application with resume upload and cover letter
-- 📊 **Comprehensive Dashboard**: Track applications, view recommendations, and manage profile
 - � **Secure & Compliant**: Built with government security standards and data protection
 - 📱 **Mobile-First Design**: Responsive design optimized for all devices
-- ♿ **Accessibility**: WCAG 2.1 compliant for inclusive access
 
 ## ⚙️ Tech Stack
 
@@ -54,12 +52,6 @@ src/
 - **Cover Letter Integration**: Built-in editor for personalized applications
 - **Application Tracking**: Real-time status updates
 
-### 📊 **Comprehensive Dashboard**
-- **Application Management**: View all applications in one place
-- **Progress Tracking**: Visual progress indicators for each application
-- **Recommendations**: AI-powered internship suggestions
-- **Profile Management**: Update skills, preferences, and qualifications
-
 ### 🔍 **Advanced Search & Discovery**
 - **Ministry-wise Filtering**: Browse by government departments
 - **Location-based Search**: Find opportunities by state/city
@@ -71,6 +63,10 @@ src/
 - **Smooth Animations**: Framer Motion powered interactions
 - **Loading States**: Beautiful loading animations
 - **Success Celebrations**: Engaging success pages with confetti effects
+
+## 🚀 UI PREVIEW
+
+https://github.com/user-attachments/assets/140ba76a-4057-4443-b231-68069dc06e1e
 
 ## 🛠️ Local Development Setup
 
@@ -166,27 +162,6 @@ InternSetu/
 | `/intern-setu/recommendations` | AI-powered suggestions |
 | `/intern-setu/onboarding` | Profile setup |
 
-## 🛡️ Production Deployment
-
-### Environment Variables
-
-**Required:**
-- `POSTGRES_URL` or `DATABASE_URL` - Database connection
-
-**Optional:**
-- `DEV_RELAX_LINT=true` - Disable strict linting (development only)
-- `NODE_ENV=production` - Production mode
-
-### Build & Deploy
-
-```bash
-# Production build
-pnpm run build
-
-# Start production server
-pnpm start
-```
-
 **Note:** Production builds enforce strict ESLint and TypeScript checking. Use `DEV_RELAX_LINT=true` only for development.
 
 ## 🤝 Contributing
@@ -200,14 +175,6 @@ We welcome contributions to make InternSetu better for students across India!
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow TypeScript best practices
-- Use Tailwind CSS for styling
-- Ensure accessibility (WCAG 2.1)
-- Write meaningful commit messages
-- Test your changes thoroughly
 
 ## 📄 License
 
